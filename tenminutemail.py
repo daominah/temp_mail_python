@@ -181,7 +181,7 @@ class MailerThread(Thread):
         while True:
             i += 1
             if i > 0:
-                time.sleep(25)
+                time.sleep(66)
 
             if i == 0 or time.time() - self.lastRefresh > 600:  # 10 minutes
                 print(datetime.datetime.now().isoformat(), "begin init TenMinuteMailer i", i)
