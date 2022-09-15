@@ -184,15 +184,15 @@ class MailerThread(Thread):
                 time.sleep(25)
 
             if i == 0 or time.time() - self.lastRefresh > 600:  # 10 minutes
-                print("begin init TenMinuteMailer i", i)
-                self.lastRefresh = time.time()
-                self.mail = ""
-                self.mailer = None
-                self.msgCount = 0
+                print(datetime.datetime.now().isoformat(), "begin init TenMinuteMailer i", i)
                 try:
                     del (GlobalInboxes[self.mail])
                 except Exception:
                     pass
+                self.lastRefresh = time.time()
+                self.mail = ""
+                self.mailer = None
+                self.msgCount = 0
 
                 try:
                     self.mailer = TenMinuteMailer()
